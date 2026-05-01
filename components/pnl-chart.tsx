@@ -17,10 +17,10 @@ export function PnlChart({ data }: PnlChartProps) {
     <section className="rounded-lg border border-line bg-white p-5 shadow-sm">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h2 className="text-base font-semibold text-ink">Intraday PnL Curve</h2>
-          <p className="mt-1 text-sm text-slate-500">Mocked data, shaped like a trader-facing risk view.</p>
+          <h2 className="text-base font-semibold text-ink">日内 PnL 曲线</h2>
+          <p className="mt-1 text-sm text-slate-500">使用模拟数据，展示交易员常看的收益和风险变化。</p>
         </div>
-        <div className="rounded-md bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-gain">+18.3% trend</div>
+        <div className="rounded-md bg-emerald-50 px-3 py-1.5 text-sm font-semibold text-gain">趋势 +18.3%</div>
       </div>
       <div className="mt-5 h-64 rounded-md border border-slate-100 bg-panel p-3">
         <svg viewBox="0 0 100 100" className="h-full w-full" preserveAspectRatio="none" role="img" aria-label="PnL line chart">

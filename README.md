@@ -1,38 +1,38 @@
-# WYC Engine Dashboard Demo
+# WYC Engine 交易看板 Demo
 
-A small internal-tool style frontend demo for the WYC Capital frontend internship.
+这是一个用于 WYC Capital 前端实习投递的内部交易系统前端 Demo。
 
-## Stack
+## 技术栈
 
 - Next.js
 - React
 - TypeScript
 - Tailwind CSS
-- Mock trading / risk data
+- 模拟交易 / 风控数据
 
-## What It Shows
+## 页面展示了什么
 
-- Trader-facing dashboard layout
-- Strategy monitor table
-- Intraday PnL chart
-- Risk alerts
-- Recent order cards
-- System health sidebar
-- Responsive UI for data-heavy internal tools
+- 交易员内部使用的 dashboard 布局
+- 策略监控表格
+- 日内 PnL 曲线
+- 风险告警
+- 最近订单卡片
+- 系统健康状态侧栏
+- 适合数据密集型内部工具的响应式 UI
 
-## Run Locally
+## 本地运行
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open `http://localhost:3000`.
+然后打开 `http://localhost:3000`。
 
-## Interview Talking Points
+## 面试时可以怎么讲
 
-- I used AI Code Agent as a pair-programming assistant, but kept the product requirement clear: a dashboard for internal traders.
-- I split the work into layout, mock data, reusable components, chart visualization, table states and responsive styling.
-- I used TypeScript types for strategies and orders so data-heavy UI is less error-prone.
-- I intentionally handled positive/negative PnL, paused/review statuses, rejected orders and risk alerts because internal tools need accurate state feedback.
-- Next step would be replacing mock data with backend APIs using TanStack Query or server actions.
+- 这是一个模拟内部交易系统的前端看板，用来展示策略状态、PnL、敞口、回撤、订单状态和风险告警。
+- 我把页面拆成了指标卡片、状态标签、PnL 图表、策略表格和订单卡片几个模块。
+- `lib/mock-data.ts` 里放的是模拟数据，并且用 TypeScript 定义了策略和订单的数据类型。
+- 我特别关注了内部工具常见的状态反馈，比如运行中、暂停、待复核、已成交、挂单中、已拒绝。
+- 下一步可以把 mock 数据替换成真实后端 API，并用 TanStack Query 做轮询刷新。

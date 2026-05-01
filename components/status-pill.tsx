@@ -12,9 +12,18 @@ const styles: Record<StatusPillProps["value"], string> = {
 };
 
 export function StatusPill({ value }: StatusPillProps) {
+  const labels: Record<StatusPillProps["value"], string> = {
+    Live: "运行中",
+    Paused: "已暂停",
+    Review: "待复核",
+    Filled: "已成交",
+    Working: "挂单中",
+    Rejected: "已拒绝"
+  };
+
   return (
     <span className={`inline-flex min-w-[76px] items-center justify-center rounded-full border px-2.5 py-1 text-xs font-semibold ${styles[value]}`}>
-      {value}
+      {labels[value]}
     </span>
   );
 }

@@ -16,11 +16,11 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-4">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">WYC Engine Demo</p>
-            <h1 className="mt-1 text-2xl font-bold text-ink">Trading Operations Dashboard</h1>
+            <h1 className="mt-1 text-2xl font-bold text-ink">交易运营监控看板</h1>
           </div>
           <div className="flex flex-wrap items-center gap-2 text-sm">
-            <span className="rounded-md border border-line bg-panel px-3 py-2 font-medium text-slate-600">Market open</span>
-            <span className="rounded-md bg-ink px-3 py-2 font-semibold text-white">Risk healthy</span>
+            <span className="rounded-md border border-line bg-panel px-3 py-2 font-medium text-slate-600">市场交易中</span>
+            <span className="rounded-md bg-ink px-3 py-2 font-semibold text-white">风控正常</span>
           </div>
         </div>
       </header>
@@ -28,7 +28,7 @@ export default function Home() {
       <div className="mx-auto grid max-w-7xl gap-5 px-5 py-6 lg:grid-cols-[260px_1fr]">
         <aside className="rounded-lg border border-line bg-white p-4 shadow-sm lg:sticky lg:top-6 lg:h-[calc(100vh-48px)]">
           <div className="space-y-1">
-            {["Overview", "Strategies", "Orders", "Risk", "Data Health"].map((item, index) => (
+            {["总览", "策略监控", "订单流", "风险控制", "数据健康"].map((item, index) => (
               <button
                 key={item}
                 className={`w-full rounded-md px-3 py-2 text-left text-sm font-semibold ${
@@ -40,11 +40,11 @@ export default function Home() {
             ))}
           </div>
           <div className="mt-6 rounded-md border border-line bg-panel p-3">
-            <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">System heartbeat</p>
+            <p className="text-xs font-bold uppercase tracking-[0.14em] text-slate-500">系统心跳</p>
             <div className="mt-3 space-y-3 text-sm">
-              <HealthRow label="API latency" value="42ms" />
-              <HealthRow label="Market data" value="99.98%" />
-              <HealthRow label="Order gateway" value="Online" />
+              <HealthRow label="API 延迟" value="42ms" />
+              <HealthRow label="行情数据可用率" value="99.98%" />
+              <HealthRow label="订单网关" value="在线" />
             </div>
           </div>
         </aside>
@@ -59,7 +59,7 @@ export default function Home() {
           <div className="grid gap-5 xl:grid-cols-[1fr_360px]">
             <PnlChart data={pnlSeries} />
             <section className="rounded-lg border border-line bg-white p-5 shadow-sm">
-              <h2 className="text-base font-semibold text-ink">Risk Alerts</h2>
+              <h2 className="text-base font-semibold text-ink">风险告警</h2>
               <div className="mt-4 space-y-3">
                 {alerts.map((alert) => (
                   <div key={alert} className="rounded-md border border-amber-200 bg-amber-50 p-3 text-sm text-amber-900">
@@ -73,22 +73,22 @@ export default function Home() {
           <section className="rounded-lg border border-line bg-white shadow-sm">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line p-5">
               <div>
-                <h2 className="text-base font-semibold text-ink">Strategy Monitor</h2>
-                <p className="mt-1 text-sm text-slate-500">Designed for scanning status, exposure, drawdown and PnL quickly.</p>
+                <h2 className="text-base font-semibold text-ink">策略监控</h2>
+                <p className="mt-1 text-sm text-slate-500">用于快速查看策略状态、敞口、回撤和 PnL。</p>
               </div>
-              <button className="rounded-md border border-line px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-panel">Export CSV</button>
+              <button className="rounded-md border border-line px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-panel">导出 CSV</button>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[760px] border-collapse text-sm">
                 <thead className="bg-panel text-left text-xs uppercase tracking-[0.12em] text-slate-500">
                   <tr>
-                    <th className="px-5 py-3">Strategy</th>
-                    <th className="px-5 py-3">Market</th>
-                    <th className="px-5 py-3">Status</th>
+                    <th className="px-5 py-3">策略</th>
+                    <th className="px-5 py-3">市场</th>
+                    <th className="px-5 py-3">状态</th>
                     <th className="px-5 py-3 text-right">PnL</th>
-                    <th className="px-5 py-3">Exposure</th>
-                    <th className="px-5 py-3">Drawdown</th>
-                    <th className="px-5 py-3">Win Rate</th>
+                    <th className="px-5 py-3">敞口</th>
+                    <th className="px-5 py-3">回撤</th>
+                    <th className="px-5 py-3">胜率</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -112,7 +112,7 @@ export default function Home() {
 
           <section className="rounded-lg border border-line bg-white shadow-sm">
             <div className="border-b border-line p-5">
-              <h2 className="text-base font-semibold text-ink">Recent Orders</h2>
+              <h2 className="text-base font-semibold text-ink">最近订单</h2>
             </div>
             <div className="grid gap-3 p-5 md:grid-cols-2">
               {orders.map((order) => (
@@ -125,9 +125,9 @@ export default function Home() {
                     <StatusPill value={order.state} />
                   </div>
                   <div className="mt-4 grid grid-cols-3 gap-3 text-sm">
-                    <OrderFact label="Side" value={order.side} />
-                    <OrderFact label="Size" value={order.size} />
-                    <OrderFact label="Price" value={order.price} />
+                    <OrderFact label="方向" value={order.side === "Buy" ? "买入" : "卖出"} />
+                    <OrderFact label="数量" value={order.size} />
+                    <OrderFact label="价格" value={order.price} />
                   </div>
                 </article>
               ))}
